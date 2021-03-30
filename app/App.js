@@ -1,12 +1,14 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { StatusBar } from 'expo-status-bar'
 
-import Calculator from "./views/calculator.js"
+// import Calculator from "./views/calculator.js"
+import Main from "./views/main.js"
 
 export default () => (
   <View style={styles.container}>
-    <Calculator />
+    {/* <Text>test</Text> */}
+    {/* <Calculator /> */}
+    <Main />
   </View>
 )
 
@@ -14,7 +16,8 @@ export default () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
+    // backgroundColor: '#1b1a1c',
     alignItems: 'center',
     justifyContent: 'center',
   },
