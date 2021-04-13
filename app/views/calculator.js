@@ -1,148 +1,189 @@
-import React, { createRef, useEffect } from 'react'
+import React, { createRef, useEffect, useState } from 'react'
 import { View, Text, Button, TextInput } from "react-native"
 
-const BUTTON_SIZE = 40
+const INITIAL_VALUE = ``
+const INITIAL_RESULT = `0`
+const INITIAL_ACTION = `+`
 
 export default () => {
-  // const ref = createRef()
-
-  // useEffect( () => setButtonsFunctionality( ref.current ) )
+  const state = {
+    resultState: useState( INITIAL_RESULT ),
+    inputState: useState( INITIAL_VALUE ),
+    actionState: useState( INITIAL_ACTION ),
+  }
 
   return (
-    <View style={styles.buttons}>
-      <Text>test</Text>
-      {/* <TextInput style={styles.result} disabled name="results" value="0"/>
-      <TextInput style={styles.action} disabled name="action" value="+"/>
-      <TextInput style={styles.input} disabled name="input"/>
+    <View style={styles.root}>
+      {createButton({
+        style: styles.reset,
+        color: styles.reset.backgroundColor,
+        title: `RESET`,
+        variables: state,
+      })}
 
-      <View style={styles.numbers}>
-        {
-          Array.from( { length:3 }, (_,i) => Array.from( { length:3 }, (_,j) => i * 3 + j + 1 ) )
-            .reverse()
-            .flat()
-            .map( num => ({ title:num }) )
-            .map( createButton )
-        }
+      <TextInput
+        style={styles.result}
+        editable={false}
+        name="results"
+        value={state.resultState[ 0 ]}
+      />
+
+      <View style={styles.input}>
+        <View style={styles.actionParent}>
+          <TextInput
+            style={styles.action}
+            editable={false}
+            name="action"
+            value={state.actionState[ 0 ]}
+          />
+        </View>
+        <View style={styles.dataParent}>
+          <TextInput
+            style={styles.data}
+            editable={false}
+            name="input"
+            value={state.inputState[ 0 ]}
+          />
+        </View>
+        {createButton({
+          style: styles.back,
+          color: styles.operation.backgroundColor,
+          title: `<-`,
+          value: `<`,
+          variables: state,
+        })}
       </View>
 
       <View style={styles.actions}>
-        {[
-          { style:styles.back,      title:`<-`, value:`<` },
-          { style:styles.plus,      title:`+` },
-          { style:styles.minus,     title:`-` },
-          { style:styles.multiple,  title:`*` },
-          { style:styles.divide,    title:`/` },
-        ].map( createButton )}
-      </View>
+        <View style={styles.numbers}>
+          {
+            Array.from( { length:3 }, (_,i) => Array.from( { length:3 }, (_,j) => i * 3 + j + 1 ) )
+              .reverse()
+              .map( nums => (
+                <View key={nums.join(`,`)} style={styles.nums}>
+                  {nums.map( num => createButton({
+                    variables: state,
+                    title: num,
+                    style: styles.num,
+                  }) )}
+                </View>
+              ) )
+          }
 
-      {[
-        { style:styles.zero,    title:`0` },
-        { style:styles.zero,    title:`,`,  value:`.` },
-        { style:styles.zero,    title:`=` },
-      ].map( createButton )} */}
+          <View style={styles.nums}>
+            {[
+              { style:styles.num, title:`0` },
+              { style:styles.num, title:`,`,  value:`.` },
+              { style:styles.num, title:`=` },
+            ].map( btnData => ({ variables:state, ...btnData }) ).map( createButton )}
+          </View>
+        </View>
+
+        <View style={styles.operations}>
+          {[
+            { color:styles.operation.backgroundColor, title:`+` },
+            { color:styles.operation.backgroundColor, title:`-` },
+            { color:styles.operation.backgroundColor, title:`*` },
+            { color:styles.operation.backgroundColor, title:`/` },
+          ].map( btnData => ({ variables:state, ...btnData }) ).map( createButton )}
+        </View>
+      </View>
     </View>
   )
 }
 
-// const createButton = props => <Button key={props.title} {...props} value={props.value ?? props.title} />
+const createButton = props => (
+  <View key={props.title} style={props.style ?? {}}>
+    <Button
+      title={`${props.title}`}
+      color={props.color}
+      onPress={() => onPress( props.value ?? props.title, props.variables )}
+    />
+  </View>
+)
 
-// const setButtonsFunctionality = view => {
-//   const action = view.querySelector( `input[name="action"]` )
-//   const input = view.querySelector( `input[name="input"]` )
-//   const results = view.querySelector( `input[name="results"]` )
-//   const buttons = Array.from( view.querySelectorAll( `button` ) )
+const onPress = (value, { inputState, resultState, actionState }) => {
+  const [ action, setAction ] = actionState
+  const [ result, setResult ] = resultState
+  const [ inputValue, setInputValue ] = inputState
 
-//   let result = ``
+  let tempResult = inputValue
 
-//   const calc = (value=result) => {
-//     console.log( `${results.value || 0} ${action.value} ${value || 0}` )
-//     results.value = eval( `${results.value || 0} ${action.value} ${value || 0}` )
-//     result = ``
-//   }
+  const calc = () => {
+    if (!inputValue) return
 
-//   buttons.forEach( button => button.addEventListener( `click`, ({ target }) => {
-//     const { value } = target
+    setResult( ``+ eval( `${result} ${action} ${inputValue}` ) )
+    tempResult = ``
+  }
 
-//     result = input.value
+  switch (value) {
+    case `.`: if (!/\./.test( tempResult )) tempResult += value; break
+    case `<`: tempResult = tempResult.slice( 0, -1 ); break
 
-//     switch (value) {
-//       case `.`: if (!/\./.test( result )) result += value; break
-//       case `<`: result = result.slice( 0, -1 ); break
+    case `+`: calc(); setAction( `+` ); break
+    case `-`: calc(); setAction( `-` ); break
+    case `*`: calc(); setAction( `*` ); break
+    case `/`: calc(); setAction( `/` ); break
 
-//       case `+`: calc(); action.value = `+`; break
-//       case `-`: calc(); action.value = `-`; break
-//       case `*`: calc(); action.value = `*`; break
-//       case `/`: calc(); action.value = `/`; break
+    case `=`: calc(); break
+    case `RESET`:
+      setAction( INITIAL_ACTION )
+      setResult( INITIAL_RESULT )
+      setInputValue( INITIAL_VALUE )
+      tempResult = INITIAL_VALUE
+      break;
 
-//       case `=`: calc(); break
+    default: tempResult += value; break
+  }
 
-//       default: result += value; break
-//     }
+  tempResult = /^0\d/.test( tempResult ) ? tempResult.slice( 1 ) : tempResult
 
-//     input.value = /^0\d/.test( result ) ? result.slice( 1 ) : result
-//   } ) )
-// }
+  setInputValue( `${tempResult}` )
+}
 
 /** @type {Object<string,React.CSSProperties>} */
 const styles = {
-  buttons: {
-    display: `grid`,
-    gridTemplate: `
-      "results  results results results"  ${BUTTON_SIZE}px
-      "action   input   input   actions"  ${BUTTON_SIZE}px
-      "nums     nums    nums    actions"  ${BUTTON_SIZE}px
-      "nums     nums    nums    actions"  ${BUTTON_SIZE}px
-      "nums     nums    nums    actions"  ${BUTTON_SIZE}px
-      "zero     zero    coma    actions"  ${BUTTON_SIZE}px
-      "equal    equal   equal   equal"    ${BUTTON_SIZE}px /
-      ${BUTTON_SIZE}px ${BUTTON_SIZE}px ${BUTTON_SIZE}px  ${BUTTON_SIZE}px
-    `
+  reset: {
+    marginBottom: 20,
+    backgroundColor: `#9b2121`,
   },
 
   result: {
-    gridArea: `results`,
-    textAlign: `right`,
-  },
-
-  action: {
-    griadArea: `action`,
     textAlign: `center`,
+    color: `white`
   },
 
   input: {
-    gridArea: `input`,
-    textAlign: `right`,
+    width: `100%`,
+    flexDirection: `row`,
   },
+      actionParent: { flex:1 },
+          action: {
+            flex: 1,
+            backgroundColor: `#ccc`,
+            textAlign: `center`,
+          },
 
-  numbers: {
-    gridArea: `nums`,
-    display: `grid`,
-    gridTemplate: `
-      "7 8 9" ${BUTTON_SIZE}px
-      "4 5 6" ${BUTTON_SIZE}px
-      "1 2 3" ${BUTTON_SIZE}px /
-      ${BUTTON_SIZE}px ${BUTTON_SIZE}px ${BUTTON_SIZE}px
-    `
-  },
+      dataParent: { flex:2 },
+          data: {
+            flex: 1,
+            textAlign: `right`,
+            backgroundColor: `white`,
+            paddingRight: 5,
+          },
 
-  zero: { gridArea:`zero` },
-  coma: { gridArea:`coma` },
-  plus: { gridArea:`plus` },
-  minus: { gridArea:`minus` },
-  multiple: { gridArea:`multiple` },
-  divide: { gridArea:`divide` },
-  equal: { gridArea:`equal` },
+      back: {
+        flex: 1,
+        textAlign: `center`,
+      },
 
-  actions: {
-    gridArea: `actions`,
-    display: `grid`,
-    gridTemplate: `
-      "back"      ${BUTTON_SIZE}px
-      "plus"      ${BUTTON_SIZE}px
-      "minus"     ${BUTTON_SIZE}px
-      "multiple"  ${BUTTON_SIZE}px
-      "divide"    ${BUTTON_SIZE}px /
-      ${BUTTON_SIZE}px
-    `
-  },
+  nums: { flexDirection:`row` },
+      num: {
+        flex: 1,
+      },
+
+  actions: { flexDirection:`row` },
+      numbers: { flex:3 },
+      operations: { flex:1 },
+      operation: { backgroundColor:`#c66e00` },
 }
