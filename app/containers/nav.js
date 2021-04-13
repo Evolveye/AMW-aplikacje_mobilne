@@ -1,9 +1,14 @@
 import React from 'react'
 import { View, Button } from 'react-native'
 
-export default ({ navigation, style }) => (
+export default ({ navigation, style, buttonStyle }) => (
   <View style={style}>
-    <Button title="Kalkulator" onPress={() => navigation.navigate( `Calculator` )}/>
-    <Button title="" onPress={() => navigation.navigate( `Calculator` )}/>
+    {
+      [ `Calculator`, `Info` ].map( label =>
+        <View key={label} style={buttonStyle}>
+          <Button title={label} onPress={() => navigation.navigate( label )}/>
+        </View>
+      )
+    }
   </View>
 )

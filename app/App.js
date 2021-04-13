@@ -16,7 +16,7 @@ const createScreen = Component => ({ navigation, ...props }) => (
       <Component {...{ navigation, ...props }}/>
     </View>
 
-    <Nav navigation={navigation} style={styles.nav} />
+    <Nav navigation={navigation} style={styles.nav} buttonStyle={styles.navButton}/>
   </View>
 )
 
@@ -44,6 +44,11 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   nav: {
+    flexDirection: `row`,
     height: 100,
   },
+  navButton: {
+    margin: 10,
+    width: 200,
+  }
 })

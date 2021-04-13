@@ -143,6 +143,12 @@ const onPress = (value, { inputState, resultState, actionState }) => {
 
 /** @type {Object<string,React.CSSProperties>} */
 const styles = {
+  root: {
+    width: `100%`,
+    flex: 1,
+    justifyContent: `center`,
+  },
+
   reset: {
     marginBottom: 20,
     backgroundColor: `#9b2121`,
