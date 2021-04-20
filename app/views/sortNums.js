@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { StyleSheet, View, ScrollView, Text, Button } from 'react-native'
+import { FlatList } from 'react-native-gesture-handler'
 
 const uniqueNums = new Set()
 
@@ -32,8 +33,8 @@ export default () => {
           {
             [
               { title:`Wyczyść filtry`, filter:null },
-              { title:`Tylko parzyste`, filter:a => a.num % 2 },
-              { title:`Parzyste i podzielne przez 3`, filter:a => (a.num % 2) && (a.num % 3 == 0) },
+              { title:`Tylko parzyste`, filter:a => a.num % 2 == 0 },
+              { title:`Parzyste i podzielne przez 3`, filter:a => (a.num % 2 == 0) && (a.num % 3 == 0) },
             ].map( ({ title, filter }) => (
               <View key={title} style={styles.button}><Button title={title} onPress={() => setFilter( () => filter )} /></View>
             ) )
@@ -41,13 +42,34 @@ export default () => {
         </View>
       </View>
 
-      <ScrollView contentContainerStyle={styles.nums}>
-        {numsTexts.map( ({ num, key }) => <Text key={key} style={styles.num}>{num}</Text> )}
+      <ScrollView>
+        {
+          numsTexts.map( ({ num, key }) =>
+            <View key={key} style={styles.numWrapper}>
+              <Text style={styles.num}>{num}</Text>
+            </View>
+          )
+        }
       </ScrollView>
-
-      <View style={styles.right}>
-
-      </View>
+      {/* <FlatList
+        style={styles.nums}
+        data={numsTexts}
+        renderItem={({ item }) =>
+          <View key={item.key} style={styles.numWrapper}>
+            <Text style={styles.num}>{item.num}</Text>
+          </View>
+        }
+        keyExtractor={item => item.key.toString()}
+        extraData={numsTexts}
+      /> */}
+        {/* {
+          numsTexts.map( ({ num, key }) =>
+            <View key={key} style={styles.numWrapper}>
+              <Text style={styles.num}>{num}</Text>
+            </View>
+          )
+        }
+      </FlatList> */}
     </View>
   )
 }
@@ -75,17 +97,18 @@ const styles = StyleSheet.create({
   button: {
     margin: 5,
   },
-  num: {
-    fontFamily: `monospace`,
+  numWrapper: {
     display: `flex`,
     justifyContent: `center`,
     alignItems: `center`,
-    fontSize: 17,
-    color:`white`,
     width: 40,
     height: 40,
-    padding: 15,
     margin: 10,
-    backgroundColor: `#fff1`
+    backgroundColor: `#fff1`,
+    fontFamily: `monospace`,
+    fontSize: 17,
   },
+  num: {
+    color:`white`,
+  }
 })
