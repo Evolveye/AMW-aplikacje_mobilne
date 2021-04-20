@@ -10,6 +10,8 @@ import Info from "./views/info.js"
 import SortNums from "./views/sortNums.js"
 import LazyLoading from "./views/lazyLoading"
 import Progress1 from "./views/progress1.js"
+import Progress2 from "./views/progress2.js"
+import Progress3 from "./views/progress3.js"
 import Main from "./views/main.js"
 
 const Stack = createStackNavigator()
@@ -33,6 +35,8 @@ export default () => (
       <Stack.Screen name="Sort and filter" component={createScreen( SortNums )} />
       <Stack.Screen name="Lazy loading" component={createScreen( LazyLoading )} />
       <Stack.Screen name="Progress 1" component={createScreen( Progress1 )} />
+      <Stack.Screen name="Progress 2" component={createScreen( Progress2 )} />
+      <Stack.Screen name="Progress 3" component={createScreen( Progress3 )} />
     </Stack.Navigator>
   </NavigationContainer>
 )
@@ -42,16 +46,13 @@ export default () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexWrap: `wrap`,
     backgroundColor: '#1b1a1c',
     alignItems: 'center',
     justifyContent: 'center',
   },
   screen: {
     flexGrow: 1,
-  },
-  nav: {
-    flexDirection: `row`,
-    height: 100,
   },
   navButton: {
     margin: 10,

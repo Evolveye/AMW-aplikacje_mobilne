@@ -7,7 +7,15 @@ export default ({ navigation }) => (
 
     <View style={styles.buttons}>
       {
-        [ `Calculator`, `Info`, `Sort and filter`, `Lazy loading`, `Progress 1` ].map( label =>
+        [
+          `Calculator`,
+          `Info`,
+          `Sort and filter`,
+          `Lazy loading`,
+          `Progress 1`,
+          `Progress 2`,
+          `Progress 3`,
+        ].map( label =>
           <View key={label} style={styles.button}>
             <Button style={{ height:`100%` }} title={label} onPress={() => navigation.navigate( label )}/>
           </View>
@@ -26,6 +34,8 @@ const styles = StyleSheet.create({
   },
   buttons: {
     flexDirection: `row`,
+    flexWrap: `wrap`,
+    justifyContent: `center`,
   },
   button: {
     margin: 5,
