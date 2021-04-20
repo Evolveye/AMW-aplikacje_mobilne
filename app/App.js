@@ -7,7 +7,8 @@ import Nav from "./containers/nav.js"
 
 import Calculator from "./views/calculator.js"
 import Info from "./views/info.js"
-import SortName from "./views/sortNums.js"
+import SortNums from "./views/sortNums.js"
+import LazyLoading from "./views/lazyLoading"
 import Main from "./views/main.js"
 
 const Stack = createStackNavigator()
@@ -28,7 +29,8 @@ export default () => (
       <Stack.Screen name="Home" component={createScreen( Main )} />
       <Stack.Screen name="Calculator" component={createScreen( Calculator )} />
       <Stack.Screen name="Info" component={createScreen( Info )} />
-      <Stack.Screen name="SortName" component={createScreen( SortName )} />
+      <Stack.Screen name="Sort and filter" component={createScreen( SortNums )} />
+      <Stack.Screen name="Lazy loading" component={createScreen( LazyLoading )} />
     </Stack.Navigator>
   </NavigationContainer>
 )
