@@ -22,7 +22,7 @@ export default () => (
 const styles = StyleSheet.create({
   screen: {
     paddingTop: 25,
-    width: Dimensions.get(`screen`).width,
+    width: Dimensions.get( `window` ).width,
     height: 500,
   },
 })

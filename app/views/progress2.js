@@ -22,7 +22,7 @@ export default () => (
 const styles = StyleSheet.create({
   screen: {
     paddingTop: 100,
-    width: Dimensions.get(`screen`).width,
+    width: Dimensions.get( `window` ).width,
   },
 })
 const stepIndicatorStyles = {
