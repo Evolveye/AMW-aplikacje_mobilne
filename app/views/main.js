@@ -7,7 +7,7 @@ export default ({ navigation }) => (
 
     <View style={styles.buttons}>
       {
-        [ `Calculator`, `Info`, `Sort and filter`, `Lazy loading` ].map( label =>
+        [ `Calculator`, `Info`, `Sort and filter`, `Lazy loading`, `Progress 1` ].map( label =>
           <View key={label} style={styles.button}>
             <Button style={{ height:`100%` }} title={label} onPress={() => navigation.navigate( label )}/>
           </View>

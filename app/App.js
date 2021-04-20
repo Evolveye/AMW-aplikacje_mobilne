@@ -9,6 +9,7 @@ import Calculator from "./views/calculator.js"
 import Info from "./views/info.js"
 import SortNums from "./views/sortNums.js"
 import LazyLoading from "./views/lazyLoading"
+import Progress1 from "./views/progress1.js"
 import Main from "./views/main.js"
 
 const Stack = createStackNavigator()
@@ -31,6 +32,7 @@ export default () => (
       <Stack.Screen name="Info" component={createScreen( Info )} />
       <Stack.Screen name="Sort and filter" component={createScreen( SortNums )} />
       <Stack.Screen name="Lazy loading" component={createScreen( LazyLoading )} />
+      <Stack.Screen name="Progress 1" component={createScreen( Progress1 )} />
     </Stack.Navigator>
   </NavigationContainer>
 )
