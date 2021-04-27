@@ -14,6 +14,7 @@ import Progress2 from "./views/progress2.js"
 import Progress3 from "./views/progress3.js"
 import TextInput from "./views/textInput.js"
 import Switch from "./views/switch.js"
+import Datetime from "./views/datetime.js"
 import Main from "./views/main.js"
 
 const Stack = createStackNavigator()
@@ -41,6 +42,7 @@ export default () => (
       <Stack.Screen name="Progress 3" component={createScreen( Progress3 )} />
       <Stack.Screen name="TextInput" component={createScreen( TextInput )} />
       <Stack.Screen name="Switch" component={createScreen( Switch )} />
+      <Stack.Screen name="Datetime" component={createScreen( Datetime )} />
     </Stack.Navigator>
   </NavigationContainer>
 )
