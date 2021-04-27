@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text, ActivityIndicator, Dimensions } from 'react-native'
 import StepIndicator from "react-native-step-indicator"
 
-const Br = () => <Text>{`\n`}</Text>
+import { Br } from "../utils/globalMarkups.js"
 
 export default () => (
   <View style={styles.screen}>

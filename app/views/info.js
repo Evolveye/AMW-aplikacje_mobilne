@@ -3,9 +3,7 @@ import { StyleSheet, View, Text, Button } from 'react-native'
 
 import styles from "./info.styles.js"
 
-const Br = () => <Text>{`\n`}</Text>
-const Code = props => <Text {...props} style={{ fontFamily:`monospace`, color:`#556` }} />
-const B = props => <Text {...props} style={{ fontWeight:`bold`, color:`gold` }} />
+import { B, Br, Code } from "../utils/globalMarkups.js"
 
 export default () => (
   <View style={styles.screen}>

@@ -1,9 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Text, TextInput } from 'react-native'
 
-const Br = () => <Text>{`\n`}</Text>
-const Code = props => <Text {...props} style={{ fontFamily:`monospace`, color:`#556` }} />
-const B = props => <Text {...props} style={{ fontWeight:`bold`, color:`gold` }} />
+import { Br } from "../utils/globalMarkups.js"
 
 export default () => (
   <View style={styles.screen}>
