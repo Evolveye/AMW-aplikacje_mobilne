@@ -5,11 +5,11 @@ import { Br } from "../utils/globalMarkups.js"
 
 export default () => (
   <View style={styles.screen}>
-    <TextInput style={styles.input} autoCorrect autoCapitalize="characters" autoCompleteType="username" />
+    <TextInput style={styles.input} autoCorrect autoCapitalize="characters" autoCompleteType="username" maxLength={10} />
     <Br />
     <TextInput style={styles.input} clearTextOnFocus caretHidden autoFocus clearButtonMode="always" />
     <Br />
-    <TextInput style={styles.input} defaultValue="ab34%^" editable={false} maxLength={10} />
+    <TextInput style={styles.input} defaultValue="ab34%^" editable={false}/>
     <Br />
     <TextInput style={styles.textarea} multiline placeholder="multiline" placeholderTextColor="red" textAlign="center" />
   </View>
