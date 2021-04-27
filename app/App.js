@@ -12,6 +12,7 @@ import LazyLoading from "./views/lazyLoading"
 import Progress1 from "./views/progress1.js"
 import Progress2 from "./views/progress2.js"
 import Progress3 from "./views/progress3.js"
+import TextInput from "./views/textInput.js"
 import Main from "./views/main.js"
 
 const Stack = createStackNavigator()
@@ -37,6 +38,7 @@ export default () => (
       <Stack.Screen name="Progress 1" component={createScreen( Progress1 )} />
       <Stack.Screen name="Progress 2" component={createScreen( Progress2 )} />
       <Stack.Screen name="Progress 3" component={createScreen( Progress3 )} />
+      <Stack.Screen name="TextInput" component={createScreen( TextInput )} />
     </Stack.Navigator>
   </NavigationContainer>
 )
