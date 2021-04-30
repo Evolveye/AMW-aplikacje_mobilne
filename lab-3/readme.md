@@ -3,8 +3,8 @@
 **Kod pisany bez zaglądania do materiałów prowadzacego -- powinien więc różnić w całości**
 
  1. Na pierwszym ekranie należy zaimplementować sortowanie i filtrowanie danych; danymi niech będzie 100 pseudolosowych liczb całkowitych z zakresu (0, 1000).  
- **Wykonano**. W aplikacji znajdują się specjalne guziki do posortowania oraz przefiltrowania liczb.  
- Link do kodu: [github.com/Evolveye/aplikacje-mobilne/.../sortNums](https://github.com/Evolveye/aplikacje-mobilne-21717-185ic/blob/master/app/views/sortNums.js)
+    **Wykonano**. W aplikacji znajdują się specjalne guziki do posortowania oraz przefiltrowania liczb.  
+    Link do kodu: [github.com/Evolveye/aplikacje-mobilne/.../sortNums](https://github.com/Evolveye/aplikacje-mobilne-21717-185ic/blob/master/app/views/sortNums.js)
 
 
  2. Na drugim ekranie należy zaimplementować "leniwe ładowanie" (lazy loading) listy danych; danymi niech będą pseudolosowe litery.  
@@ -18,3 +18,5 @@
       - [github.com/Evolveye/aplikacje-mobilne/.../progress1](https://github.com/Evolveye/aplikacje-mobilne-21717-185ic/blob/master/app/views/progress1.js)
       - [github.com/Evolveye/aplikacje-mobilne/.../progress2](https://github.com/Evolveye/aplikacje-mobilne-21717-185ic/blob/master/app/views/progress2.js)
       - [github.com/Evolveye/aplikacje-mobilne/.../progress3](https://github.com/Evolveye/aplikacje-mobilne-21717-185ic/blob/master/app/views/progress3.js)
+
+[Nagranie poglądowe na platformie YouTube](https://www.youtube.com/watch?v=YCDGKGSws7Q)
