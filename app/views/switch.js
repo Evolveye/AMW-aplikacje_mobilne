@@ -8,11 +8,13 @@ export default () => {
   const [ modalVisible, setModalVisible ] = useState( false )
   const [ isEnabled, setIsEnabled ] = useState( false );
   const toggleSwitch = () => {
+    const isReallyEnabled = !isEnabled
+
     setRandomNumber( Math.floor( Math.random() * 1000 ) )
     setIsEnabled( previousState => !previousState );
     setModalVisible( true )
 
-    new Promise( r => setTimeout( () => r( setModalVisible( false ) ), 1000 * 1 ) )
+    if (isReallyEnabled) new Promise( r => setTimeout( () => r( setModalVisible( false ) ), 1000 * 1 ) )
   }
 
   return (
