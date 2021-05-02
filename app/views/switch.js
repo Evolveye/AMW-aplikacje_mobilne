@@ -1,11 +1,19 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Text, Switch } from 'react-native'
+import { StyleSheet, Dimensions, View, Text, Switch, Modal } from 'react-native'
 
 import { Br } from "../utils/globalMarkups.js"
 
 export default () => {
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const [ randomNumber, setRandomNumber ] = useState( null )
+  const [ modalVisible, setModalVisible ] = useState( false )
+  const [ isEnabled, setIsEnabled ] = useState( false );
+  const toggleSwitch = () => {
+    setRandomNumber( Math.floor( Math.random() * 1000 ) )
+    setIsEnabled( previousState => !previousState );
+    setModalVisible( true )
+
+    new Promise( r => setTimeout( () => r( setModalVisible( false ) ), 1000 * 1 ) )
+  }
 
   return (
     <View style={styles.screen}>
@@ -16,8 +24,24 @@ export default () => {
         onValueChange={toggleSwitch}
         value={isEnabled}
       />
+
       <Br />
-      <Text style={styles.text}>{isEnabled ? Math.floor( Math.random() * 1000 ) : `X`}</Text>
+
+      { isEnabled && (
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+        >
+          <View style={styles.modalScreen}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>{randomNumber}</Text>
+            </View>
+          </View>
+        </Modal>
+      ) }
+
+      <Text style={styles.text}>{isEnabled ? randomNumber : `X`}</Text>
     </View>
   )
 }
@@ -28,9 +52,37 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: `center`,
     justifyContent: `center`,
+    width: Dimensions.get( `window` ).width,
   },
 
   text: {
     color: `white`,
+  },
+
+  modalScreen: {
+    flex: 1,
+    justifyContent: `center`,
+    alignItems: `center`,
+  },
+
+  modalView: {
+    margin: 20,
+    backgroundColor: `white`,
+    borderRadius: 20,
+    padding: 35,
+    alignItems: `center`,
+    shadowColor: `#000`,
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  },
+
+  modalText: {
+    marginBottom: 15,
+    textAlign: `center`
   }
 })
