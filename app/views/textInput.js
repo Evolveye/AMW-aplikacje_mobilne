@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput } from 'react-native'
+import { StyleSheet, Dimensions, View, Text, TextInput } from 'react-native'
 
 import { Br } from "../utils/globalMarkups.js"
 
@@ -11,7 +11,8 @@ export default () => (
     <Br />
     <TextInput style={styles.input} defaultValue="ab34%^" editable={false}/>
     <Br />
-    <TextInput style={styles.textarea} multiline placeholder="multiline" placeholderTextColor="red" textAlign="center" />
+    {/* Sadly, multiline doesn't work on Android ;/ */}
+    {/* <TextInput style={styles.textarea} multiline placeholder="multiline" placeholderTextColor="red" textAlign="center" /> */}
   </View>
 )
 
@@ -21,9 +22,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: `center`,
     justifyContent: `center`,
+    width: Dimensions.get( `window` ).width,
   },
 
   input: {
+    minWidth: 100,
     backgroundColor: `#fff`,
   },
 
