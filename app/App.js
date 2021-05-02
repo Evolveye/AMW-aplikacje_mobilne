@@ -3,7 +3,7 @@ import React from 'react'
 import { StyleSheet, Dimensions, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from "@react-navigation/stack"
-import Nav from "./containers/nav.js"
+// import Nav from "./containers/nav.js"
 
 import Calculator from "./views/calculator.js"
 import Info from "./views/info.js"
@@ -17,6 +17,7 @@ import Switch from "./views/switch.js"
 import Datetime from "./views/datetime.js"
 import ToastAndroid from "./views/toastAndroid.js"
 import Select from "./views/select.js"
+import ScrollView from "./views/scrollView.js"
 import Main from "./views/main.js"
 
 const Stack = createStackNavigator()
@@ -47,6 +48,7 @@ export default () => (
       <Stack.Screen name="Datetime" component={createScreen( Datetime )} />
       <Stack.Screen name="ToastAndroid" component={createScreen( ToastAndroid )} />
       <Stack.Screen name="Select" component={createScreen( Select )} />
+      <Stack.Screen name="Scroll view" component={createScreen( ScrollView )} />
     </Stack.Navigator>
   </NavigationContainer>
 )

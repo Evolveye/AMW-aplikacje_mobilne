@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { StyleSheet, View, ScrollView, Text, Button } from 'react-native'
-import { FlatList } from 'react-native-gesture-handler'
 
 const uniqueNums = new Set()
 
@@ -51,25 +50,6 @@ export default () => {
           )
         }
       </ScrollView>
-      {/* <FlatList
-        style={styles.nums}
-        data={numsTexts}
-        renderItem={({ item }) =>
-          <View key={item.key} style={styles.numWrapper}>
-            <Text style={styles.num}>{item.num}</Text>
-          </View>
-        }
-        keyExtractor={item => item.key.toString()}
-        extraData={numsTexts}
-      /> */}
-        {/* {
-          numsTexts.map( ({ num, key }) =>
-            <View key={key} style={styles.numWrapper}>
-              <Text style={styles.num}>{num}</Text>
-            </View>
-          )
-        }
-      </FlatList> */}
     </View>
   )
 }
