@@ -16,5 +16,5 @@
 
  5. Na piątym ekranie należy zaimplementować "aktywny" modal + pasywne powiadomienia za pomocą ToastAndroid (lub jego odpowiednika w iOS); można wykorzystać funkcję setTimeout() na czas trwania obietnicy (Promise) i w tym czasie powinien być aktywny modal; ww. powiadomienie powinno się pojawić po rozwiązaniu obietnicy (resolve of Promise object).
     **Wykonano**. Kod można zobaczyć na [widoku toastu](https://github.com/Evolveye/aplikacje-mobilne-21717-185ic/blob/master/app/views/toastAndroid.js)
- 
- 
+  
+[Nagranie poglądowe na platformie YouTube](https://www.youtube.com/watch?v=WBAGKZ-vHrM)
