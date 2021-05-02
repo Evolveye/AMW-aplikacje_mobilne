@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
-import { StyleSheet, Dimensions, View, Text, Button } from "react-native"
+import { StyleSheet, Dimensions, View, Text, Button, Alert } from "react-native"
 import DateTimePicker from "@react-native-community/datetimepicker"
 
 import { Br } from "../utils/globalMarkups.js"
+
+const getDateStr = date => ``
+  + `${date.getFullYear()}.${(date.getMonth() + 1).toString().padStart( 2, 0 )}.${date.getDate().toString().padStart( 2, 0 )}`
+  + ` `
+  + `${date.getHours().toString().padStart( 2, 0 )}:${date.getMinutes().toString().padStart( 2, 0 )}`
 
 export default () => {
   const [ date, setDate ] = useState( new Date() )
@@ -14,6 +19,8 @@ export default () => {
 
     setShow( Platform.OS === 'ios' )
     setDate( currentDate )
+
+    Alert.alert( `Datetime`, getDateStr( currentDate ) )
   }
 
   const showMode = (currentMode) => {
@@ -23,11 +30,6 @@ export default () => {
 
   const showDatepicker = () => showMode( `date` )
   const showTimepicker = () => showMode( `time` )
-
-  const datetimeStr = ``
-    + `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`
-    + ` `
-    + `${date.getHours()}:${date.getMinutes() + 1}:${date.getSeconds()}`
 
   return (
     <View style={styles.screen}>
@@ -52,7 +54,7 @@ export default () => {
 
       <Br />
 
-      <Text style={styles.text}>{datetimeStr}</Text>
+      <Text style={styles.text}>{getDateStr( date )}</Text>
     </View>
   )
 }

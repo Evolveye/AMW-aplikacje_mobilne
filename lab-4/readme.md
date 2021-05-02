@@ -12,10 +12,9 @@
     **Wykonano**. Kod można zobaczyć na [widoku przełącznika](https://github.com/Evolveye/aplikacje-mobilne-21717-185ic/blob/master/app/views/switch.js)
 
  4. Na czwartym ekranie należy zaimplementować wybór daty i czasu; po wciśnięciu przycisku `Wyświetl termin` powinien pojawić się alert z wybranymi parametrami czasowymi.
-    **Prawie wykonano**. Przeoczyłem alert, zamaist tego jest zwyczjany tekst.
-    [Widok daty i czasu](https://github.com/Evolveye/aplikacje-mobilne-21717-185ic/blob/master/app/views/datetime.js)
+    **Wykonano**. Kod można zobaczyć na [widoku daty i czasu](https://github.com/Evolveye/aplikacje-mobilne-21717-185ic/blob/master/app/views/datetime.js)
 
  5. Na piątym ekranie należy zaimplementować "aktywny" modal + pasywne powiadomienia za pomocą ToastAndroid (lub jego odpowiednika w iOS); można wykorzystać funkcję setTimeout() na czas trwania obietnicy (Promise) i w tym czasie powinien być aktywny modal; ww. powiadomienie powinno się pojawić po rozwiązaniu obietnicy (resolve of Promise object).
-    **Wykonano**. [A oto Kod](https://github.com/Evolveye/aplikacje-mobilne-21717-185ic/blob/master/app/views/toastAndroid.js) z widokiem toastu
+    **Wykonano**. Kod można zobaczyć na [widoku toastu](https://github.com/Evolveye/aplikacje-mobilne-21717-185ic/blob/master/app/views/toastAndroid.js)
  
  
