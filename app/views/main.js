@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text, Button } from 'react-native'
 
 export default ({ navigation }) => (
-  <View style={styles.screen}>
+  <>
     <Text style={styles.mainText}>Evolveye's primitive app</Text>
 
     <View style={styles.buttons}>
@@ -27,16 +27,11 @@ export default ({ navigation }) => (
         )
       }
     </View>
-  </View>
+  </>
 )
 
 /** @type {Object<string,React.CSSProperties>} */
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    alignItems: `center`,
-    justifyContent: `center`,
-  },
   buttons: {
     flexDirection: `row`,
     flexWrap: `wrap`,

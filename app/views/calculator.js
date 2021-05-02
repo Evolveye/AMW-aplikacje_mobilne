@@ -1,5 +1,5 @@
-import React, { createRef, useEffect, useState } from 'react'
-import { View, Text, Button, TextInput } from "react-native"
+import React, { useState } from 'react'
+import { View, Button, TextInput } from "react-native"
 
 const INITIAL_VALUE = ``
 const INITIAL_RESULT = `0`
@@ -13,7 +13,7 @@ export default () => {
   }
 
   return (
-    <View style={styles.root}>
+    <View>
       {createButton({
         style: styles.reset,
         color: styles.reset.backgroundColor,
@@ -143,12 +143,6 @@ const onPress = (value, { inputState, resultState, actionState }) => {
 
 /** @type {Object<string,React.CSSProperties>} */
 const styles = {
-  root: {
-    width: `100%`,
-    flex: 1,
-    justifyContent: `center`,
-  },
-
   reset: {
     marginBottom: 20,
     backgroundColor: `#9b2121`,

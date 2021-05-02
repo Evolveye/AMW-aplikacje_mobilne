@@ -1,12 +1,12 @@
 import React from 'react'
-import { StyleSheet, View, Text, Button } from 'react-native'
+import { Text } from 'react-native'
 
 import styles from "./info.styles.js"
 
 import { B, Br, Code } from "../utils/globalMarkups.js"
 
 export default () => (
-  <View style={styles.screen}>
+  <>
     <Text style={styles.mainText}>
       <B>Spread operator</B> "..." --
       operator służący do "rozwijania" wyrażen iterowalnych.<Br />
@@ -39,5 +39,5 @@ export default () => (
       <Br />
       Wywołanie tej funkcji zwraca daną -- wartość stanu -- oraz setter tej danej -- funkcję która zmienia stan.
     </Text>
-  </View>
+  </>
 )

@@ -1,6 +1,6 @@
 import "react-native-gesture-handler"
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, Dimensions, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from "@react-navigation/stack"
 import Nav from "./containers/nav.js"
@@ -57,12 +57,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexWrap: `wrap`,
-    backgroundColor: '#1b1a1c',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#1b1a1c',
   },
   screen: {
-    flexGrow: 1,
+    width: Dimensions.get( `window` ).width,
   },
   navButton: {
     margin: 10,

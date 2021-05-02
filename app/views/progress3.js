@@ -1,11 +1,11 @@
 import React from 'react'
-import { StyleSheet, View, Text, ActivityIndicator, Dimensions } from 'react-native'
+import { StyleSheet, View, ActivityIndicator } from 'react-native'
 import StepIndicator from "react-native-step-indicator"
 
 import { Br } from "../utils/globalMarkups.js"
 
 export default () => (
-  <View style={styles.screen}>
+  <View style={styles.wrapper}>
     <ActivityIndicator color="#13a1fe" size="small" />
     <Br /><Br />
     <StepIndicator
@@ -20,9 +20,8 @@ export default () => (
 
 /** @type {Object<string,React.CSSProperties>} */
 const styles = StyleSheet.create({
-  screen: {
+  wrapper: {
     paddingTop: 25,
-    width: Dimensions.get( `window` ).width,
     height: 500,
   },
 })

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, Dimensions, View, Text, Modal, Pressable, ToastAndroid } from 'react-native'
+import { StyleSheet, View, Text, Modal, Pressable, ToastAndroid } from 'react-native'
 
 const showToast = message => ToastAndroid.showWithGravityAndOffset(
   message,
@@ -19,7 +19,7 @@ export default () => {
   }
 
   return (
-    <View style={styles.screen}>
+    <View style={styles.wrapper}>
       <Modal
         animationType="slide"
         transparent={true}
@@ -44,11 +44,9 @@ export default () => {
 
 /** @type {Object<string,React.CSSProperties>} */
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
+  wrapper: {
     justifyContent: `center`,
     alignItems: `center`,
-    width: Dimensions.get( `window` ).width,
   },
   modalScreen: {
     flex: 1,

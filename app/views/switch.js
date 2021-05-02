@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, Dimensions, View, Text, Switch, Modal } from 'react-native'
+import { StyleSheet, View, Text, Switch, Modal } from 'react-native'
 
 import { Br } from "../utils/globalMarkups.js"
 
@@ -51,10 +51,8 @@ export default () => {
 /** @type {Object<string,React.CSSProperties>} */
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
     alignItems: `center`,
     justifyContent: `center`,
-    width: Dimensions.get( `window` ).width,
   },
 
   text: {

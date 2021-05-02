@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { StyleSheet, Dimensions, View, Text, ListViewBase } from 'react-native'
+import { StyleSheet, Text } from 'react-native'
 import Select from "react-native-picker-select"
 import { Br } from '../utils/globalMarkups'
 
@@ -27,7 +27,7 @@ export default () => {
   console.log({secondarySelectData})
 
   return (
-    <View style={styles.screen}>
+    <>
       <Select
         style={styles.select}
         onValueChange={prop => setFirstSelectValue( prop )}
@@ -51,19 +51,12 @@ export default () => {
       <Br />
 
       <Text style={styles.text}>{secondarySelectValue}</Text>
-
-    </View>
+    </>
   )
 }
 
 /** @type {Object<string,React.CSSProperties>} */
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: `center`,
-    alignItems: `center`,
-    width: Dimensions.get( `window` ).width,
-  },
   select: {
     color: `white`,
   },

@@ -17,18 +17,15 @@ export default () => {
   } )
 
   return (
-    <View style={styles.screen}>
-      <InfiniteScroll
-        data={data}
-        renderData={renderData}
-      />
-    </View>
+    <InfiniteScroll
+      data={data}
+      renderData={renderData}
+    />
   )
 }
 
 /** @type {Object<string,React.CSSProperties>} */
 const styles = StyleSheet.create({
-  screen: {},
   buttons: {
     flexDirection: `row`,
   },
