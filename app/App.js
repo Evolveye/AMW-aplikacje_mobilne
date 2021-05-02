@@ -31,24 +31,33 @@ const createScreen = Component => ({ navigation, ...props }) => (
   </View>
 )
 
+const views = [
+  { name:`Calculator`,      component:Calculator },
+  { name:"Info",            component:Info },
+  { name:`Sort and filter`, component:SortNums },
+  { name:`Lazy loading`,    component:LazyLoading },
+  { name:`Progress 1`,      component:Progress1 },
+  { name:`Progress 2`,      component:Progress2 },
+  { name:`Progress 3`,      component:Progress3 },
+  { name:`TextInput`,       component:TextInput },
+  { name:`Switch`,          component:Switch },
+  { name:`Datetime`,        component:Datetime },
+  { name:`ToastAndroid`,    component:ToastAndroid },
+  { name:`Select`,          component:Select },
+  { name:`Scroll view`,     component:ScrollView },
+]
+
 
 export default () => (
   <NavigationContainer>
     <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={createScreen( Main )} />
-      <Stack.Screen name="Calculator" component={createScreen( Calculator )} />
-      <Stack.Screen name="Info" component={createScreen( Info )} />
-      <Stack.Screen name="Sort and filter" component={createScreen( SortNums )} />
-      <Stack.Screen name="Lazy loading" component={createScreen( LazyLoading )} />
-      <Stack.Screen name="Progress 1" component={createScreen( Progress1 )} />
-      <Stack.Screen name="Progress 2" component={createScreen( Progress2 )} />
-      <Stack.Screen name="Progress 3" component={createScreen( Progress3 )} />
-      <Stack.Screen name="TextInput" component={createScreen( TextInput )} />
-      <Stack.Screen name="Switch" component={createScreen( Switch )} />
-      <Stack.Screen name="Datetime" component={createScreen( Datetime )} />
-      <Stack.Screen name="ToastAndroid" component={createScreen( ToastAndroid )} />
-      <Stack.Screen name="Select" component={createScreen( Select )} />
-      <Stack.Screen name="Scroll view" component={createScreen( ScrollView )} />
+      <Stack.Screen
+        name="Home"
+        component={createScreen( Main )}
+        initialParams={{ views:views.map( ({ name }) => name )}}
+      />
+
+      {views.map( ({ name, component }) => <Stack.Screen key={name} name={name} component={createScreen( component )} /> )}
     </Stack.Navigator>
   </NavigationContainer>
 )
