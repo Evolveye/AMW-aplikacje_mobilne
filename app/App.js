@@ -18,6 +18,7 @@ import Datetime from "./views/datetime.js"
 import ToastAndroid from "./views/toastAndroid.js"
 import Select from "./views/select.js"
 import ScrollView from "./views/scrollView.js"
+import Touchable from "./views/touchable.js"
 import Swipe from "./views/swipe.js"
 import Main from "./views/main.js"
 
@@ -46,6 +47,7 @@ const views = [
   { name:`ToastAndroid`,    component:ToastAndroid },
   { name:`Select`,          component:Select },
   { name:`Scroll view`,     component:ScrollView },
+  { name:`Touchable`,       component:Touchable },
   { name:`Swipe`,           component:Swipe },
 ]
 
