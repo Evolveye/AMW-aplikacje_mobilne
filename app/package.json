@@ -10,6 +10,7 @@
   "dependencies": {
     "@react-native-community/datetimepicker": "^3.0.4",
     "@react-native-community/masked-view": "0.1.10",
+    "@react-native-community/slider": "3.0.3",
     "@react-native-picker/picker": "1.9.2",
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.4",
@@ -22,11 +23,13 @@
     "react-native-gesture-handler": "~1.8.0",
     "react-native-infinite-scrolling": "^2.0.0",
     "react-native-picker-select": "^8.0.4",
+    "react-native-pixelated-image": "^1.0.3",
     "react-native-reanimated": "~1.13.0",
     "react-native-safe-area-context": "3.1.9",
     "react-native-screens": "~2.15.2",
     "react-native-step-indicator": "^1.0.3",
     "react-native-step-progress-bar": "^1.0.3",
+    "react-native-svg": "12.1.0",
     "react-native-web": "~0.13.12",
     "react-native-webview": "11.0.0"
   },
