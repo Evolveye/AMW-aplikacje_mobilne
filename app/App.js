@@ -24,6 +24,7 @@ import Images from "./views/images.js"
 import Slider from "./views/slider.js"
 import Icons from "./views/icons.js"
 import NetInfo from "./views/netinfo.js"
+import AsyncStorage from "./views/asyncStorage.js"
 import Main from "./views/main.js"
 
 const Stack = createStackNavigator()
@@ -57,6 +58,7 @@ const views = [
   { name:`Slider`,          component:Slider },
   { name:`Icons`,           component:Icons },
   { name:`NetInfo`,         component:NetInfo },
+  { name:`Storage`,         component:AsyncStorage },
 ]
 
 
