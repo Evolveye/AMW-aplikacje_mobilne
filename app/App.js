@@ -21,6 +21,7 @@ import ScrollView from "./views/scrollView.js"
 import Touchable from "./views/touchable.js"
 import Swipe from "./views/swipe.js"
 import Images from "./views/images.js"
+import Slider from "./views/slider.js"
 import Main from "./views/main.js"
 
 const Stack = createStackNavigator()
@@ -51,6 +52,7 @@ const views = [
   { name:`Touchable`,       component:Touchable },
   { name:`Swipe`,           component:Swipe },
   { name:`Images`,          component:Images },
+  { name:`Slider`,          component:Slider },
 ]
 
 
