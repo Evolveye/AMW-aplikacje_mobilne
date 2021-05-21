@@ -1,4 +1,4 @@
-# Lab 6
+# Lab 7
 
 **Kod pisany bez zaglądania do materiałów prowadzacego -- powinien więc różnić w całości**
 
