@@ -26,6 +26,10 @@ import Icons from "./views/icons.js"
 import NetInfo from "./views/netinfo.js"
 import AsyncStorage from "./views/asyncStorage.js"
 import Sync from "./views/sync.js"
+import SQLite from "./views/sqlite.js"
+// import MongoDBRemote from "./views/mongodbConnection.js"
+import SQLiteRestart from "./views/sqliteRestart.js"
+
 import Main from "./views/main.js"
 
 const Stack = createStackNavigator()
@@ -61,6 +65,9 @@ const views = [
   { name:`NetInfo`,         component:NetInfo },
   { name:`Storage`,         component:AsyncStorage },
   { name:`Sync data`,       component:Sync },
+  { name:`SQLite`,          component:SQLite },
+  // { name:`remote MongoDB`,  component:MongoDBRemote },
+  { name:`SQLite restart`,  component:SQLiteRestart },
 ]
 
 
